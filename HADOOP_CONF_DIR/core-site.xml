@@ -1,0 +1,22 @@
+<configuration>
+<property>
+  <name>fs.ofs.impl</name>
+  <value>org.apache.hadoop.fs.ozone.RootedOzoneFileSystem</value>
+</property>
+<property>
+  <name>fs.defaultFS</name>
+  <value>ofs://om-0.om.default.svc.realm/</value>
+</property>
+<property>
+  <name>hadoop.security.authentication</name>
+  <value>kerberos</value>
+</property>
+<property>
+  <name>hadoop.security.token.service.use_ip</name>
+  <value>false</value>
+</property>
+<property>
+  <name>ozone.om.kerberos.principal</name>
+  <value>om/om@EXAMPLE.COM</value>
+</property>
+</configuration>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration>
+    <property>
+        <name>hdds.datanode.dir</name>
+        <value>/data01/storage</value>
+    </property>
+    <property>
+        <name>ozone.scm.datanode.id.dir</name>
+        <value>/data01</value>
+    </property>
+    <property>
+        <name>ozone.scm.block.client.address</name>
+        <value>VM1</value>
+    </property>
+    <property>
+        <name>ozone.om.address</name>
+        <value>VM1</value>
+        <tag>OM, REQUIRED</tag>
+        <description>
+      The address of the Ozone OM service. This allows clients to discover
+      the address of the OM.
+    </description>
+    </property>
+    <property>
+        <name>ozone.metadata.dirs</name>
+        <value>/data01/metadata</value>
+        <tag>OZONE, OM, SCM, CONTAINER, STORAGE, REQUIRED</tag>
+        <description>
+      This setting is the fallback location for SCM, OM, Recon and DataNodes
+      to store their metadata. This setting may be used only in test/PoC
+      clusters to simplify configuration.
+
+      For production clusters or any time you care about performance, it is
+      recommended that ozone.om.db.dirs, ozone.scm.db.dirs and
+      dfs.container.ratis.datanode.storage.dir be configured separately.
+    </description>
+    </property>
+    <property>
+        <name>ozone.scm.client.address</name>
+        <value>VM1</value>
+        <tag>OZONE, SCM, REQUIRED</tag>
+        <description>
+      The address of the Ozone SCM client service. This is a required setting.
+
+      It is a string in the host:port format. The port number is optional
+      and defaults to 9860.
+    </description>
+    </property>
+    <property>
+        <name>ozone.scm.names</name>
+        <value>VM1</value>
+        <tag>OZONE, REQUIRED</tag>
+        <description>
+      The value of this property is a set of DNS | DNS:PORT | IP
+      Address | IP:PORT. Written as a comma separated string. e.g. scm1,
+      scm2:8020, 7.7.7.7:7777.
+      This property allows datanodes to discover where SCM is, so that
+      datanodes can send heartbeat to SCM.
+    </description>
+    </property>
+    <property>
+       <name>hdds.scm.kerberos.principal</name>
+       <value>scm/scm@EXAMPLE.COM</value>
+    </property>
+    <property>
+       <name>hdds.scm.kerberos.keytab.file</name>
+       <value>/etc/security/keytabs/scm.keytab</value>
+    </property>
+    <property>
+       <name>ozone.om.kerberos.principal</name>
+       <value>om/om@EXAMPLE.COM</value>
+    </property>
+    <property>
+       <name>ozone.om.kerberos.keytab.file</name>
+       <value>/etc/security/keytabs/om.keytab</value>
+    </property>
+    <property>
+       <name>dfs.datanode.kerberos.principal</name>
+       <value>dn/dn@EXAMPLE.COM</value>
+    </property>
+    <property>
+       <name>dfs.datanode.kerberos.keytab.file</name>
+       <value>/etc/security/keytabs/dn.keytab</value>
+    </property>
+    <property>
+       <name>ozone.security.enabled</name>
+       <value>true</value>
+    </property>
+    <property>
+       <name>ozone.acl.enabled</name>
+       <value>false</value>
+    </property>
+    <property>
+      <name>hadoop.security.token.service.use_ip</name>
+      <value>false</value>
+    </property>
+</configuration>
