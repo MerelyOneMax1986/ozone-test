@@ -264,12 +264,14 @@ mkdir -p /home/jovyan/.kube/
 cat > /home/jovyan/.kube/config
 ```
 
-Then do in JupyterLab terminal:
+Then run Spark cluster on Kubernetes in a cluster mode by issuing in JupyterLab terminal:
 ```
 git clone https://github.com/MerelyOneMax1986/ozone-test.git
 cd ozone-test
 bash ozone-test.sh
 ```
+Or you can run Spark cluster on Kubernetes in a client mode by running Jupyter notebook **ozone-test_Spark_client_mode.ipynb**
+
 
 Then go to the Spark cluster and see the logs like:
 ```
