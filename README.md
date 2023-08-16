@@ -231,6 +231,9 @@ docker cp krb5.conf $PYSPARK_POD_NAME:/usr/local/spark/conf/
 docker cp log4j.properties $PYSPARK_POD_NAME:/usr/local/spark/conf/
 docker cp HADOOP_CONF_DIR/core-site.xml $PYSPARK_POD_NAME:/usr/local/spark/conf/
 docker cp HADOOP_CONF_DIR/hdfs-site.xml $PYSPARK_POD_NAME:/usr/local/spark/conf/
+cd
+cd ozone-1.3.0
+docker cp ./share/ozone/lib/ozone-filesystem-hadoop3-client-1.3.0.jar $PYSPARK_POD_NAME:/usr/local/spark/jars
 ```
 
 Create a Service account for Spark driver to manage the cluster:
