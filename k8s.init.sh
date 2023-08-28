@@ -49,6 +49,27 @@ echo "Verify that the net.bridge.bridge-nf-call-iptables, net.bridge.bridge-nf-c
 
 sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
 
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+# Set SELinux in permissive mode (effectively disabling it)
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+
+k8s_version=1.21.6
+k8s_cni_version=0.8.7-0.x86_64
+
+sudo yum install -y kubelet-"$k8s_version" kubeadm-"$k8s_version" kubectl-"$k8s_version" kubernetes-cni-"$k8s_cni_version" --disableexcludes=kubernetes
+
+sudo systemctl enable --now kubelet
+
 # default flannel network
 sudo kubeadm init --config kubeadm.config.yaml --v=5
 
