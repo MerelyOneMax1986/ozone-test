@@ -23,6 +23,7 @@ spark-submit \
  --conf spark.executor.memory=4G \
  --conf spark.kubernetes.kerberos.enabled=true \
  --conf spark.kerberos.access.hadoopFileSystems=ofs://om-0.om.default.svc.realm:9862 \
+ --conf spark.kubernetes.container.image.pullPolicy="Always" \
  --conf "spark.driver.extraJavaOptions=-Dlog4j.configuration=file:/opt/spark/conf/log4j.properties" \
  --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=file:/opt/spark/conf/log4j.properties" \
  --conf spark.executorEnv.HADOOP_JAAS_DEBUG=true \
