@@ -1,22 +1,29 @@
-<configuration>
-<property>
-  <name>fs.ofs.impl</name>
-  <value>org.apache.hadoop.fs.ozone.RootedOzoneFileSystem</value>
-</property>
-<property>
-  <name>fs.defaultFS</name>
-  <value>ofs://om-0.om.default.svc.realm/</value>
-</property>
-<property>
-  <name>hadoop.security.authentication</name>
-  <value>kerberos</value>
-</property>
-<property>
-  <name>hadoop.security.token.service.use_ip</name>
-  <value>false</value>
-</property>
-<property>
-  <name>ozone.om.kerberos.principal</name>
-  <value>om/om@EXAMPLE.COM</value>
-</property>
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <property>
+    <name>fs.defaultFS</name>
+    <value>ofs://ozone/</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>fs.ofs.impl</name>
+    <value>org.apache.hadoop.fs.ozone.RootedOzoneFileSystem</value>
+  </property>
+
+  <property>
+    <name>fs.AbstractFileSystem.ofs.impl</name>
+    <value>org.apache.hadoop.fs.ozone.RootedOzFs</value>
+  </property>
+
+  <property>
+    <name>hadoop.security.authentication</name>
+    <value>kerberos</value>
+  </property>
+
+  <property>
+    <name>hadoop.security.authorization</name>
+    <value>true</value>
+  </property>
+
 </configuration>
