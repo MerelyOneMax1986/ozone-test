@@ -1,0 +1,33 @@
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <property>
+    <name>ozone.om.address.ozone.om1</name>
+    <value>om-0.om.default.svc.realm:9862</value>
+  </property>
+
+  <property>
+    <name>ozone.om.kerberos.principal</name>
+    <value>om/om@EXAMPLE.COM</value>
+  </property>
+
+  <property>
+    <name>ozone.om.nodes.ozone</name>
+    <value>om1</value>
+  </property>
+
+  <property>
+    <name>ozone.om.service.ids</name>
+    <value>ozone</value>
+  </property>
+
+  <property>
+    <name>ozone.service.id</name>
+    <value>ozone</value>
+  </property>
+
+  <property>
+    <name>ozone.security.enabled</name>
+    <value>true</value>
+  </property>
+
+</configuration>
